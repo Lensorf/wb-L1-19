@@ -27,21 +27,16 @@ function loadPosts() {
       const newPosts = r.response.items;
       const html = newPosts
         .map(
-          (p) => {
-            console.log(p.attachments);
-            `
+          (p) => `
           <li class="vk-widget-post">
             <div class="vk-widget-post-title">${p.text}</div>
             <div class="vk-widget-post-date">${new Date(
               p.date * 1000
             ).toLocaleDateString()}</div>
+            <img class=ImgAll src=${p.attachments[0]['photo']?.sizes[4].url}
           </li>
         `
-      }
         )
-        console.log('html', html)
-        console.log('html map', html.map((p) => console.log(p.attachments[0])))
-        console.log('newPosts map', newPosts.map((p) => console.log(p.attachments[0].photo.sizes)))
         .join('');
       postsList.insertAdjacentHTML('beforeend', html); // добавляем посты в список
 
@@ -84,6 +79,7 @@ function loadData() {
           <div class="vk-widget-post-date">${new Date(
             p.date * 1000
           ).toLocaleDateString()}</div>
+          <img class=ImgAll src=${p.attachments[0]['photo']?.sizes[4].url}
         </li>
       `
       )
@@ -104,6 +100,7 @@ function evictData(postsToEvict) {
         <div class="vk-widget-post-date">${new Date(
           p.date * 1000
         ).toLocaleDateString()}</div>
+        <img class=ImgAll src=${p.attachments[0]['photo']?.sizes[4].url}
       </li>
     `
     )
