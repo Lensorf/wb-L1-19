@@ -42,18 +42,18 @@ function loadPosts() {
 
       posts = posts.concat(newPosts); // добавляем посты в массив для кэширования
       offset += count; // увеличиваем смещение
+      observer.observe(document.querySelector('.vk-widget-post:last-child'))
     }
   });
 }
 
 // Обработка скроллинга
-scrollBar.addEventListener('scroll', () => {
-  const maxScroll = scrollBar.scrollHeight - scrollBar.clientHeight;
-  const currentScroll = scrollBar.scrollTop;
-
-  if (currentScroll >= maxScroll - 10) {
-    loadPosts(); // загружаем новые посты, если достигли конца списка
-  }
+const observer = new IntersectionObserver(posts => {
+  posts.forEach(post => {
+    if (post.isIntersecting) {
+      loadPosts();
+    }
+  });
 });
 
 // Кэширование данных в localStorage

@@ -1,6 +1,6 @@
 .vk-widget {
-    width: 900px;
-    height: 800px;
+    width: 50vw;
+    height: 80vh;
     border: 1px solid #ccc;
     overflow: hidden;
     position: relative;
@@ -33,16 +33,6 @@
     font-size: 14px;
     color: #999;
     margin-inline: auto;
-    width: 50vw;
-    height: 80vh;
-  }
-  
-  .vk-widget-scrollbar {
-    width: 100%;
-    height: 100%;
-    background-color: #ccc;
-    border-radius: 5px;
-
   }
 
   .ImgAll {
