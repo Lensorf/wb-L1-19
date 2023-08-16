@@ -39,7 +39,7 @@ function loadPosts() {
       console.log(newPosts.map((p) => {
         console.log('p ==>', p );
         console.log('p.attachments', p.attachments);
-        console.log('p.attachments[0].sizes', p.attachments[0].sizes);
+        console.log('p.attachments[0].photo.sizes[4].url', p.attachments[0].photo.sizes[4].url);
       }))
       const html = newPosts
         .map(
