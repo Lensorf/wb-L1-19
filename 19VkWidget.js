@@ -35,7 +35,6 @@ function loadPosts() {
             <div class="vk-widget-post-date">${new Date(
               p.date * 1000
             ).toLocaleDateString()}</div>
-            <img class=ImgAll src=${p.attachments[0].photo.sizes[4].url}
           </li>
         `
       }
@@ -85,7 +84,6 @@ function loadData() {
           <div class="vk-widget-post-date">${new Date(
             p.date * 1000
           ).toLocaleDateString()}</div>
-          <img class=ImgAll src="${p.attachments[0].photo.sizes[4].url}"
         </li>
       `
       )
