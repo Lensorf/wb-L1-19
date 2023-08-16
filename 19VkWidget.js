@@ -1,3 +1,5 @@
+window.location.href = 'https://oauth.vk.com/authorize?client_id=51729989&display=page&redirect_uri=https://lensorf.github.io/wb-L1-19&scope=wall&response_type=token&v=5.131&state=123456'
+
 const token = window.location.hash.split("=")[1].split("&")[0]
 
 // Установим области и переменные для работы виджета
@@ -20,6 +22,8 @@ function loadPosts() {
     offset: offset,
     access_token: token,
     v: 5.131
+    }, (r) => {
+      console.log(r);
     }))
 
   VK.Api.call('wall.get', {
@@ -31,6 +35,7 @@ function loadPosts() {
     v: 5.131
     }, (r) => {
     if (r.response) {
+      console.log(r.response.items)
       const newPosts = r.response.items;
       const html = newPosts
         .map(
