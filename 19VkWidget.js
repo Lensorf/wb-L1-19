@@ -34,11 +34,13 @@ function loadPosts() {
     access_token: token,
     v: 5.131
     }, (r) => {
-    if (r.response.items) {
+    if (r.response) {
       const newPosts = r.response.items;
       const html = newPosts
         .map(
-          (p) => `
+          (p) => 
+          console.log(p),
+          `
           <li class="vk-widget-post">
             <div class="vk-widget-post-title">${p.text}</div>
             <div class="vk-widget-post-date">${new Date(
