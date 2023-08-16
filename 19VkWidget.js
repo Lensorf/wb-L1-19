@@ -27,7 +27,9 @@ function loadPosts() {
       const newPosts = r.response.items;
       const html = newPosts
         .map(
-          (p) => `
+          (p) => {
+            console.log(p.attachments);
+            `
           <li class="vk-widget-post">
             <div class="vk-widget-post-title">${p.text}</div>
             <div class="vk-widget-post-date">${new Date(
@@ -36,6 +38,7 @@ function loadPosts() {
             <img class=ImgAll src=${p.attachments[0].photo.sizes[4].url}
           </li>
         `
+      }
         )
         console.log('html', html)
         console.log('html map', html.map((p) => console.log(p.attachments[0])))
