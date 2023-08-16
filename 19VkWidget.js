@@ -34,8 +34,7 @@ function loadPosts() {
     access_token: token,
     v: 5.131
     }, (r) => {
-    if (r.response) {
-      console.log(r.response.items)
+    if (r.response.items) {
       const newPosts = r.response.items;
       const html = newPosts
         .map(
@@ -45,6 +44,7 @@ function loadPosts() {
             <div class="vk-widget-post-date">${new Date(
               p.date * 1000
             ).toLocaleDateString()}</div>
+            <img class=ImgAll src="${p.attachments[0].sizes[4].url}"
           </li>
         `
         )
@@ -90,6 +90,7 @@ function loadData() {
           <div class="vk-widget-post-date">${new Date(
             p.date * 1000
           ).toLocaleDateString()}</div>
+          <img class=ImgAll src="${p.attachments[0].sizes[4].url}"
         </li>
       `
       )
