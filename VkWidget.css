@@ -24,13 +24,17 @@
   }
   
   .vk-widget-post-title {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
   }
   
   .vk-widget-post-date {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
+    margin-inline: auto;
+    width: 50vw;
+    height: 80vh;
+    /* overflow-y: scroll; */
   }
   
   .vk-widget-scroll {
@@ -48,4 +52,10 @@
     height: 100%;
     background-color: #ccc;
     border-radius: 5px;
+    overflow-y: scroll;
+  }
+
+  .ImgAll {
+    width: 100%;
+    object-fit: cover;
   }
