@@ -1,5 +1,4 @@
 const token = window.location.hash.split("=")[1].split("&")[0]
-console.log(token)
 
 // Установим области и переменные для работы виджета
 const widget = document.querySelector('.vk-widget');
@@ -14,7 +13,23 @@ function loadPosts() {
   const owner_id = -1; // ID паблика
   const version = '5.131'; // версия API VK
 
-  VK.Api.call('wall.get', { owner_id, count, offset, version }, (r) => {
+  console.log (VK.Api.call('wall.get', {
+    owner_id: -217698511,
+    domain: 'comix_team', 
+    count: count,
+    offset: offset,
+    access_token: token,
+    v: 5.131
+    }))
+
+  VK.Api.call('wall.get', {
+    owner_id: -217698511,
+    domain: 'comix_team', 
+    count: count,
+    offset: offset,
+    access_token: token,
+    v: 5.131
+    }, (r) => {
     if (r.response) {
       const newPosts = r.response.items;
       const html = newPosts
