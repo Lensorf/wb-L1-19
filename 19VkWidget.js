@@ -15,20 +15,9 @@ function loadPosts() {
   const owner_id = -1; // ID паблика
   const version = '5.131'; // версия API VK
 
-  console.log (VK.Api.call('wall.get', {
-    owner_id: -217698511,
-    domain: 'comix_team', 
-    count: count,
-    offset: offset,
-    access_token: token,
-    v: 5.131
-    }, (r) => {
-      console.log(r);
-    }))
-
   VK.Api.call('wall.get', {
-    owner_id: -217698511,
-    domain: 'comix_team', 
+    owner_id: -119334888,
+    domain: 'nisnom', 
     count: count,
     offset: offset,
     access_token: token,
@@ -36,11 +25,6 @@ function loadPosts() {
     }, (r) => {
     if (r.response) {
       const newPosts = r.response.items;
-      console.log(newPosts.map((p) => {
-        console.log('p ==>', p );
-        console.log('p.attachments', p.attachments);
-        console.log('p.attachments[0].photo.sizes[4].url', p.attachments[0].photo.sizes[4].url);
-      }))
       const html = newPosts
         .map(
           (p) => `
@@ -49,6 +33,7 @@ function loadPosts() {
             <div class="vk-widget-post-date">${new Date(
               p.date * 1000
             ).toLocaleDateString()}</div>
+            <img class=ImgAll src="${p.attachments[0].photo.sizes[4].url}"
           </li>
         `
         )
@@ -94,6 +79,7 @@ function loadData() {
           <div class="vk-widget-post-date">${new Date(
             p.date * 1000
           ).toLocaleDateString()}</div>
+          <img class=ImgAll src="${p.attachments[0].photo.sizes[4].url}"
         </li>
       `
       )

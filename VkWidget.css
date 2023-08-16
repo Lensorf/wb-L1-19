@@ -1,9 +1,10 @@
 .vk-widget {
-    width: 300px;
-    height: 400px;
+    width: 900px;
+    height: 800px;
     border: 1px solid #ccc;
     overflow: hidden;
     position: relative;
+    margin: 30px 0px 0px 30px;
   }
   
   .vk-widget-posts {
