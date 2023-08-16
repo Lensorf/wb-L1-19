@@ -36,11 +36,14 @@ function loadPosts() {
     }, (r) => {
     if (r.response) {
       const newPosts = r.response.items;
+      console.log(newPosts.map((p) => {
+        console.log('p ==>', p );
+        console.log('p.attachments', p.attachments);
+        console.log('p.attachments[0].sizes', p.attachments[0].sizes);
+      }))
       const html = newPosts
         .map(
-          (p) => 
-          console.log(p),
-          `
+          (p) => `
           <li class="vk-widget-post">
             <div class="vk-widget-post-title">${p.text}</div>
             <div class="vk-widget-post-date">${new Date(
