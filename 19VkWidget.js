@@ -37,6 +37,9 @@ function loadPosts() {
           </li>
         `
         )
+        console.log('html', html)
+        console.log('html map', html.map((p) => console.log(p.attachments[0])))
+        console.log('newPosts map', newPosts.map((p) => console.log(p.attachments[0].photo.sizes)))
         .join('');
       postsList.insertAdjacentHTML('beforeend', html); // добавляем посты в список
 
